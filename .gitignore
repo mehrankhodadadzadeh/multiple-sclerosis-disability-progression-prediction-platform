@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+*.csv
+*.parquet
+*.pkl
+*.joblib
+/data/
+artifacts/
+models/*
+!models/.gitkeep
+reports/*
+!reports/.gitkeep
+.DS_Store

@@ -1,0 +1,27 @@
+lookback_months: 24
+prediction_horizon_months: 24
+minimum_index_spacing_months: 12
+minimum_age_years: 18
+# Reject ambiguous same-day measurements instead of arbitrarily choosing one.
+conflicting_same_day_policy: error
+# Separate process: inspect reports, then explicitly pass --cohort-reviewed.
+require_cohort_review: true
+random_seed: 42
+split:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+training:
+  logistic_max_iter: 2000
+  forest_trees: 200
+  forest_min_samples_leaf: 5
+  xgb_trees: 150
+  xgb_max_depth: 3
+  xgb_learning_rate: 0.05
+  n_jobs: 2
+  selection_metric: brier
+  decision_threshold: 0.5
+  risk_category_thresholds: [0.2, 0.5]
+  bootstrap_iterations: 100
+  confidence_level: 0.95
+  shap_max_samples: 200

@@ -1,0 +1,14 @@
+change_reference_tolerance_months: 6
+# Timing of smoking status is unavailable: never use the current export value.
+allow_undated_smoking: false
+# Prespecified, no data-dependent choice using validation/test values.
+nonpositive_timed_tests_as_missing: true
+# Historical PASAT zero denotes missing/not performed in the modeling view.
+pasat_zero_as_missing: true
+# Only historical rows may contribute. Changes require an observation at or
+# before the reference date, within the tolerance (no forward interpolation).
+groups:
+  A: [age_at_index, sex, disease_duration_years, current_edss]
+  B: [previous_edss, edss_change_12m, edss_change_24m, edss_slope_24m, edss_mean_24m, edss_min_24m, edss_max_24m, edss_std_24m, edss_count_24m, days_since_previous_edss]
+  C: [currently_on_dmt, active_dmt_count, current_dmt, current_dmt_duration_days, number_previous_dmts, distinct_previous_dmts, dmt_starts_previous_24m, days_since_last_dmt_start, relapse_therapy_count_6m, relapse_therapy_count_12m, relapse_therapy_count_24m, corticosteroid_episode_count_12m, corticosteroid_episode_count_24m, days_since_last_relapse_therapy]
+  D: [latest_sdmt, sdmt_change_12m, sdmt_change_24m, sdmt_slope_24m, sdmt_count_24m, days_since_last_sdmt, latest_t25fw, t25fw_change_24m, t25fw_slope_24m, latest_9hpt_right, latest_9hpt_left, nine_hpt_right_change_24m, nine_hpt_left_change_24m, latest_pasat, pasat_change_24m]

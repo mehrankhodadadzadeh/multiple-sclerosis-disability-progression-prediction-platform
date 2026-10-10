@@ -1,0 +1,17 @@
+# PROVISIONAL: confirm with an MS clinical collaborator before training.
+name: confirmed_edss_disability_progression
+baseline_thresholds:
+  - {min_inclusive: 0, max_exclusive: 0.5, increase: 1.5}
+  - {min_inclusive: 0.5, max_exclusive: 6, increase: 1.0}
+  - {min_inclusive: 6, max_exclusive: 10.5, increase: 0.5}
+confirmation_min_months: 3
+confirmation_max_months: 6
+require_sustained_worsening: true
+# BOTH first worsening and confirmation must be within the prediction horizon.
+confirmation_within_horizon: true
+# Negatives require an EDSS at/after horizon, within this grace period,
+# with no gap exceeding the maximum, measured from the index date.
+negative_followup_grace_months: 6
+negative_max_observation_gap_months: 12
+# Worsening near the horizon without assessable confirmation is censored.
+censor_unresolved_worsening: true

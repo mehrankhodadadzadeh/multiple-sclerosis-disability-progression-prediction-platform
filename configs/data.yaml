@@ -1,0 +1,213 @@
+# Review ranges/categorical encodings and US month-first dates before use.
+# Two-digit years 00-30 => 2000-2030; 31-99 => 1931-1999.
+date_dayfirst: false
+two_digit_year_pivot: 30
+maximum_date: today
+categories:
+  patients:
+    sex:
+    - M
+    - F
+    smoking_status:
+    - 'yes'
+    - 'no'
+    - unknown
+    deceased:
+    - 0
+    - 1
+  relapse_therapy:
+    corticosteroid:
+    - 0
+    - 1
+  csf:
+    igg_index_abnormal:
+    - Normal
+    - Abnormal
+    - Unknown
+    oligoclonal_bands:
+    - 'Yes'
+    - 'No'
+    - Unknown
+ranges:
+  patients:
+    age_at_onset:
+    - 0
+    - 120
+  edss:
+    edss:
+    - 0
+    - 10
+  sdmt:
+    sdmt:
+    - 0
+    - 110
+  clinical_tests:
+    pasat3:
+    - 0
+    - 60
+  vas_qol:
+    vas_qol:
+    - 0
+    - 100
+  relapse_therapy:
+    duration:
+    - 0
+    - null
+  csf:
+    lymphocytes_pct:
+    - 0
+    - 100
+    monocytes_pct:
+    - 0
+    - 100
+    neutrophils_pct:
+    - 0
+    - 100
+  eq5d:
+    mobility:
+    - 1
+    - 5
+    self_care:
+    - 1
+    - 5
+    usual_activities:
+    - 1
+    - 5
+    pain_discomfort:
+    - 1
+    - 5
+    anxiety_depression:
+    - 1
+    - 5
+tables:
+  patients:
+    filename: patients.csv
+    strings:
+    - study_id
+    - country_of_birth
+    - sex
+    - origin
+    - education
+    - employment_status
+    - marital_status
+    - clinical_phase
+    - smoking_status
+    dates:
+    - date_of_birth
+    - first_exam_date
+    - ms_onset_date
+    - clinical_phase_date
+    - date_deceased
+    numbers:
+    - age_at_onset
+    - deceased
+    - birth_year
+  edss:
+    filename: edss.csv
+    strings:
+    - study_id
+    dates:
+    - date
+    numbers:
+    - edss
+  clinical_tests:
+    filename: clinical_tests.csv
+    strings:
+    - study_id
+    - dominant_hand
+    dates:
+    - date
+    numbers:
+    - t25fw_trial1
+    - t25fw_trial2
+    - t25fw_mean
+    - nine_hpt_right_trial1
+    - nine_hpt_right_trial2
+    - nine_hpt_right_mean
+    - nine_hpt_left_trial1
+    - nine_hpt_left_trial2
+    - nine_hpt_left_mean
+    - pasat3
+  treatments:
+    filename: treatments.csv
+    strings:
+    - study_id
+    - treatment_id
+    - status
+    - inn
+    - trade_name
+    - reason_for_stopping
+    dates:
+    - start_date
+    - latest_date
+    - end_date
+    numbers:
+    - cumulative_dose
+  relapse_therapy:
+    filename: relapse_therapy.csv
+    strings:
+    - study_id
+    - type
+    - status
+    - inn
+    - trade_name
+    - technique
+    - indication
+    - route
+    - posology
+    - unit
+    dates:
+    - start_date
+    - end_date
+    numbers:
+    - duration
+    - corticosteroid
+  csf:
+    filename: csf.csv
+    strings:
+    - study_id
+    - blood_contamination
+    - igg_index_abnormal
+    - oligoclonal_bands
+    dates:
+    - date
+    numbers:
+    - white_cell_count
+    - lymphocytes_pct
+    - monocytes_pct
+    - neutrophils_pct
+    - total_proteins
+    - csf_albumin
+    - blood_albumin
+    - csf_igg
+    - blood_igg
+    - igg_index
+  sdmt:
+    filename: sdmt.csv
+    strings:
+    - study_id
+    dates:
+    - date
+    numbers:
+    - sdmt
+  vas_qol:
+    filename: vas_qol.csv
+    strings:
+    - study_id
+    dates:
+    - date
+    numbers:
+    - vas_qol
+  eq5d:
+    filename: eq5d.csv
+    strings:
+    - study_id
+    - raw_value
+    dates:
+    - date
+    numbers:
+    - mobility
+    - self_care
+    - usual_activities
+    - pain_discomfort
+    - anxiety_depression
